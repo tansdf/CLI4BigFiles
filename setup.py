@@ -13,7 +13,9 @@ setup(
     packages=find_packages(),
     include_package_data=True,
     install_requires=[
-            'click'
+            'click',
+            'random',
+            'string'
             ],
     entry_points='''
         [console_scripts]
