@@ -9,13 +9,14 @@ from setuptools import setup, find_packages
 
 setup(
     name='file_generator',
-    version='0.1',
+    version='0.2',
     packages=find_packages(),
+    include_package_data=True,
     install_requires=[
             'click'
             ],
     entry_points='''
         [console_scripts]
-        file_generator=file_generator:cli
+        file_generator=file_generator:hello
     ''',
 )

@@ -11,7 +11,7 @@ import click
 
 @click.command()
 @click.option('--file-name', default="defout.tst", help='Name of file for generation.')
-@click.option('--size', default=1, help='File size')
+@click.option('--size', default=1, help='File size.')
 
 def hello(file_name, size):
     with open(file_name, 'w') as f:
