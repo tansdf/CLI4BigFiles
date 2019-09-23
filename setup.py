@@ -8,11 +8,14 @@ Created on Sun Sep 22 02:30:35 2019
 from setuptools import setup, find_packages
 
 setup(
-    name='mypkg',
+    name='file_generator',
     version='0.1',
     packages=find_packages(),
-    install_requires=['click'],
-    entry_points={
-        'console_scripts': ['cli=cli.cli:cli'],
-    },
+    install_requires=[
+            'click'
+            ],
+    entry_points='''
+        [console_scripts]
+        file_generator=file_generator:cli
+    ''',
 )
