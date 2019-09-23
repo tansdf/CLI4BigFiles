@@ -15,7 +15,8 @@ setup(
     install_requires=[
             'click',
             'random',
-            'string'
+            'string',
+            'os'
             ],
     entry_points='''
         [console_scripts]
