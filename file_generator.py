@@ -40,25 +40,35 @@ def hello(file_name, size, modify, increase, percent):
         percentedSize = int(existedSize/100 *percent)
         oldExistedSize = existedSize
         print("Percented ",percentedSize,"---",existedSize)
-        while percentedSize>0:
-            with fileinput.FileInput(file_name, inplace=True, backup='.bak') as file:               
-                for line in file:                    
-                    if percentedSize > 0:
-                        if len(line) > percentedSize:
-                            randomReplaceSize = random.randint(0, percentedSize)
-                        else:
-                            randomReplaceSize = random.randint(0, len(line))
-                        forReplace = b64encode(os.urandom(randomReplaceSize)).decode('utf-8')
-                        if len(forReplace)>len(line): 
-                            delta = len(forReplace)-len(line)
-                            percentedSize-=len(line)
-                            print(line.replace(line,forReplace[:-delta]))
-                        else:
-                            delta = len(forReplace)-len(line)
-                            percentedSize-=len(forReplace)
-                            print(line.replace(line[:-delta],forReplace))                   
+        with fileinput.FileInput(file_name, inplace=True, backup='.bak') as file:
+            for line in file:
+                changeSize = int(len(line)/100 *percent)
+                forReplace = b64encode(os.urandom(changeSize)).decode('utf-8')
+                if len(forReplace)!=changeSize:
+                    delta = abs(len(forReplace)-changeSize)
+                    forReplace=forReplace[:-delta]
+                offset = random.randint(0,len(line)-len(forReplace))
+                print(line.replace(line[offset:offset+len(forReplace)],forReplace))
+#        while percentedSize>0:              
+#            with fileinput.FileInput(file_name, inplace=True, backup='.bak') as file:               
+#                for line in file:                    
+#                    if percentedSize > 0:
+#                        if len(line) > percentedSize:
+#                            randomReplaceSize = random.randint(0, percentedSize)
+#                        else:
+#                            randomReplaceSize = random.randint(0, len(line))
+#                        forReplace = b64encode(os.urandom(randomReplaceSize)).decode('utf-8')
+#                        forReplace = ''.join(random.choice(string.ascii_letters) for _ in range(randomReplaceSize)) 
+#                        if len(forReplace)>len(line): 
+#                            delta = len(forReplace)-len(line)
+#                            percentedSize-=len(line)                            
+#                            print(line.replace(line,forReplace[:-delta]))
+#                        else:
+#                            delta = len(forReplace)-len(line)
+#                            percentedSize-=len(forReplace)
+#                            print(line.replace(line[:delta],forReplace))                   
         os.unlink(file_name + '.bak')
-        print("File modified.")
+        print("File modified.")       
     else:
         writesize = mygetsize(size)       
         while writesize > 0:
@@ -72,7 +82,7 @@ def hello(file_name, size, modify, increase, percent):
                     f.write(b64encode(os.urandom(writesize)).decode('utf-8'))
                 writesize=0
         print("--- %s seconds ---" % (time.time() - start_time))
-    print("Creating is done. Trucating to match size")    
+        print("Creating is done. Truncating to match size")    
     existedSize = os.path.getsize(file_name)
     print(existedSize)
     if ((not modify) and existedSize > mygetsize(size)) or (modify and existedSize > oldExistedSize):        
