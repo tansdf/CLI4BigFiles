@@ -82,7 +82,7 @@ def hello(file_name, size, modify, increase, percent): #This is the main method 
         while writesize > 0: #Loop for write
             if writesize > buffer: #Checking for buffer to use
                 with open(file_name, 'a') as f: #Write using buffer   
-                    f.write(b64encode(os.urandom(writesize)).decode('utf-8'))                
+                    f.write(b64encode(os.urandom(buffer)).decode('utf-8'))                
                 writesize-=buffer
             else:
                 with open(file_name, 'a') as f: #Write whole size or what is left         
