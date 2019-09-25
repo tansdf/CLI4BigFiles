@@ -21,5 +21,8 @@ For installing this utility, you need to start setup.py in the main folder of th
 ```
 python setup.py install
 ```
-If everything passes correctly, the script is ready to use.
+If everything passes correctly, the script is ready to use. Now you can use it in Anaconda Prompt by typing:
+```
+file_generator --help
+```
 ### Please, send me your feedback. 
