@@ -25,4 +25,8 @@ If everything passes correctly, the script is ready to use. Now you can use it i
 ```
 file_generator --help
 ```
+## Built With
+
+* [Click](https://click.palletsprojects.com/en/7.x/) - The library for crating CLI's
+
 ### Please, send me your feedback. 
