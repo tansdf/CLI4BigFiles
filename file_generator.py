@@ -26,7 +26,7 @@ def mygetsize(size): #This method gets size of file from input
 #Here is the cli starts
 @click.command()
 @click.option('--file-name', default="defout.tst", help='Name of file for generation.')
-@click.option('--size', help='File size.')
+@click.option('--size', help='File size. modifier G - gigabytes, M - megabytes, K - kilobytes, number without a modifier - bytes')
 @click.option('--modify', is_flag=True, help='This flag uses to modify existing file on percent.')
 @click.option('--increase', is_flag=True, help='This flag uses to increce existing file on percent.')
 @click.option('--percent', default=5, help='Size for modifying/increasing.')
