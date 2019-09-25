@@ -76,14 +76,16 @@ def hello(file_name, size, modify, increase, percent): #This is the main method 
         print(os.path.getsize(file_name))
         
     else: #In case of creating new file
-        writesize = mygetsize(size) #Gets file size from input      
+        writesize = mygetsize(size) #Gets file size from input
+        with open(file_name, 'w') as f:
+            print("File created")
         while writesize > 0: #Loop for write
             if writesize > buffer: #Checking for buffer to use
-                with open(file_name, 'w') as f: #Write using buffer   
+                with open(file_name, 'a') as f: #Write using buffer   
                     f.write(b64encode(os.urandom(writesize)).decode('utf-8'))                
                 writesize-=buffer
             else:
-                with open(file_name, 'w') as f: #Write whole size or what is left         
+                with open(file_name, 'a') as f: #Write whole size or what is left         
                     f.write(b64encode(os.urandom(writesize)).decode('utf-8'))
                 writesize=0
         print("--- %s seconds ---" % (time.time() - start_time)) #Time output
