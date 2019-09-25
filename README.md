@@ -19,7 +19,7 @@ file_generator --file-name = out.tst --increase --persent = 5
 ### Installing
 For installing this utility, you need to start setup.py in the main folder of the repository.
 ```
-python setup.py install
+python setup.py develop
 ```
 If everything passes correctly, the script is ready to use. Now you can use it in Anaconda Prompt by typing:
 ```
