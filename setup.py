@@ -9,7 +9,7 @@ from setuptools import setup, find_packages
 #Small script for adding all needed packages
 setup(
     name='file_generator',
-    version='0.5',
+    version='0.6',
     packages=find_packages(),
     include_package_data=True,
     install_requires=[
