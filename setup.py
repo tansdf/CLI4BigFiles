@@ -5,8 +5,8 @@ Created on Sun Sep 22 02:30:35 2019
 @author: tansdf
 """
 
-from setuptools import setup, find_packages
-
+from setuptools import setup, find_packages 
+#Small script for adding all needed packages
 setup(
     name='file_generator',
     version='0.4',
