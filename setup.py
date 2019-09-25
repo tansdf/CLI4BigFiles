@@ -9,11 +9,11 @@ from setuptools import setup, find_packages
 #Small script for adding all needed packages
 setup(
     name='file_generator',
-    version='0.4',
+    version='0.5',
     packages=find_packages(),
     include_package_data=True,
     install_requires=[
-            'click'                          
+            'click'                         
             ],
     entry_points='''
         [console_scripts]
