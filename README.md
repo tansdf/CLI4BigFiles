@@ -13,7 +13,7 @@ file_generator --file-name=out.tst --modify --percent=5
 ```
 Change the out.tst file by 5% (random parts of the file are replaced by random blocks by 5% of the file size).
 ```
-file_generator --file-name=out.tst --increase --persent=5
+file_generator --file-name=out.tst --increase --perсent=5
 ```
 5% increase in out.tst file (random data is written to the end of the file).
 ### Installing
