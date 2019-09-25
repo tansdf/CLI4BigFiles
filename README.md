@@ -5,15 +5,15 @@ The task was to write a console utility for generating files with arbitrary cont
 
 ### The interface of this CLI:
 ```
-file_generator --file-name = out.tst --size = 120G
+file_generator --file-name=out.tst --size=120G
 ```
 Generating an out.tst file with random content of 120 gigabytes in size (alternatively, modifiers M can be specified - megabytes, K - kilobytes, number without a modifier - bytes).
 ```
-file_generator --file-name = out.tst --modify --percent = 5
+file_generator --file-name=out.tst --modify --percent=5
 ```
 Change the out.tst file by 5% (random parts of the file are replaced by random blocks by 5% of the file size).
 ```
-file_generator --file-name = out.tst --increase --persent = 5
+file_generator --file-name=out.tst --increase --persent=5
 ```
 5% increase in out.tst file (random data is written to the end of the file).
 ### Installing
